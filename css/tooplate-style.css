@@ -84,7 +84,7 @@ http://www.tooplate.com/view/2098-health
   }
 
   a:hover, a:active, a:focus {
-    color: #a5c422;
+    color: #E6BE8A;
     outline: none;
   }
 
@@ -107,7 +107,7 @@ http://www.tooplate.com/view/2098-health
   }
 
   .section-btn {
-    background: #a5c422;
+    background: #fd8f00;
     border: 0;
     border-radius: 3px;
     color: #ffffff;
@@ -295,7 +295,7 @@ http://www.tooplate.com/view/2098-health
   }
 
   header span i {
-    color: #000000;
+    color: #fd8f00;
     margin-right: 5px;
   }
 
@@ -327,7 +327,7 @@ http://www.tooplate.com/view/2098-health
   }
 
   .navbar-default .navbar-nav li.appointment-btn a {
-    background: #a5c422;
+    background: #fd8f00;
     border-radius: 3px;
     color: #ffffff;
     font-weight: 600;
@@ -784,7 +784,7 @@ http://www.tooplate.com/view/2098-health
   }
 
   #appointment button#cf-submit {
-    background: #a5c422;
+    background: #fd8f00;
     color: #ffffff;
     font-weight: 600;
     height: 55px;
