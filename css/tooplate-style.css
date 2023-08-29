@@ -319,7 +319,7 @@ http://www.tooplate.com/view/2098-health
   }
 
   .navbar-default .navbar-brand .fa {
-    color: #000000;
+    color: #ff0000;
   }
 
   .navbar-default .navbar-nav li.appointment-btn {
@@ -395,11 +395,11 @@ http://www.tooplate.com/view/2098-health
   }
 
   #home h3 {
-    color: #ffffff;
+    color: antiquewhite;
     font-size: 14px;
     font-weight: normal;
     line-height: inherit;
-    letter-spacing: 3px;
+    letter-spacing: 2px;
     text-transform: uppercase;
     margin: 0;
   }
@@ -469,7 +469,7 @@ http://www.tooplate.com/view/2098-health
   -----------------------------------------*/
 
   #about {
-    background: url('../images/Aboutas.png') no-repeat top center;
+    background: url('../images/wh.avif') no-repeat top center;
     background-size: cover;
     padding-top: 150px;
     padding-bottom: 150px;
