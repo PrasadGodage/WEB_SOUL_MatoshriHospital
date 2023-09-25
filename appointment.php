@@ -31,10 +31,10 @@
 
 
         # email headers.
-        $headers = "From: $name <$email>";
+        $headers = $content;
 
         # Send the email.
-        $success = mail($mail_to, $content, $headers);
+        $success = mail($mail_to, $subject, $headers);
         if ($success) {
             # Set a 200 (okay) response code.
             http_response_code(200);
