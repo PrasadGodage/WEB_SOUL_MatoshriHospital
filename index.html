@@ -667,7 +667,6 @@ http://www.tooplate.com/view/2098-health
      <script>
           $('#appointment-form').on('submit', function(e) {
               e.preventDefault();  
-              alert("hello amol");
               var fData = new FormData(this);
               alert(fData);
               $.ajax({
@@ -679,13 +678,12 @@ http://www.tooplate.com/view/2098-health
                   processData: false,
                   dataType: 'json',
                   success: function(response) {
-                     alert(response)
+                     alert("Your Response has recorded successfull.")
                   }
               });
           });
           $('#send-form').on('submit', function(e) {
               e.preventDefault();  
-              alert("hello amol");
               var fData = new FormData(this);
               alert(fData);
               $.ajax({
@@ -697,7 +695,7 @@ http://www.tooplate.com/view/2098-health
                   processData: false,
                   dataType: 'json',
                   success: function(response) {
-                     alert(response)
+                     alert("Your Response has recorded successfull.")
                   }
               });
           });
