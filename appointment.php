@@ -47,3 +47,23 @@
         echo "There was a problem with your submission, please try again.";
     }
 ?>
+<script>
+          $('#appointment-form').on('submit', function(e) {
+              e.preventDefault();  
+              alert("hello amol");
+              var fData = new FormData(this);
+              alert(fData);
+              $.ajax({
+                  url: 'mail.php',
+                  type: 'POST',
+                  data: fData,
+                  cache: false,
+                  contentType: false,
+                  processData: false,
+                  dataType: 'json',
+                  success: function(response) {
+                     alert(response)
+                  }
+              });
+          });
+          </script>
