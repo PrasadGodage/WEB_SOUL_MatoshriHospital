@@ -21,7 +21,7 @@
         }
         
         # Mail Content
-        $content = "patient-name: $name\n";
+        $content = "patient name: $name\n";
         // $content .= "email: $email\n\n";
         $content .= "contact: $contact\n";
         $content .= "visit: $visit\n";
