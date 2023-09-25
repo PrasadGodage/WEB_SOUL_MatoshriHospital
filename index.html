@@ -160,14 +160,14 @@ http://www.tooplate.com/view/2098-health
                               <!-- <i class="fa fa-h-square"></i>ealth Center</h2> > -->
                               <div class="app-sub-w3">
                                    <br>
-                                   <form>
+                                   <form id="send-form" role="form" method="post">
                                         <div class="form-group row">
                                              <label class="col-sm-4 col-lg-4">
                                                   Patient Name
                                              </label>
                                              <div class="col-sm-8 col-lg-8">
-                                                  <input type="text" id="patient-name" class="form-control"
-                                                       placeholder="" required>
+                                                  <input type="text" id="patient_name" class="form-control"
+                                                       placeholder="patient_name"  name="patient_name">
                                              </div>
                                         </div>
                                         <!---->
@@ -176,8 +176,8 @@ http://www.tooplate.com/view/2098-health
                                                   Contact
                                              </label>
                                              <div class="col-sm-8 col-lg-8">
-                                                  <input type="tel" id="contact" class="form-control" placeholder=""
-                                                       required>
+                                                  <input type="tel" id="contact" class="form-control" placeholder="contact"
+                                                       name="contact">
                                              </div>
                                         </div>
                                         <!---->
@@ -187,7 +187,7 @@ http://www.tooplate.com/view/2098-health
                                                   Reason for Visit
                                              </label>
                                              <div class="col-sm-8 col-lg-8">
-                                                  <textarea id="symptoms" class="form-control" required></textarea>
+                                                  <textarea id="visit" class="form-control" name="visit"placeholder="visit"></textarea>
                                              </div>
                                         </div>
                                         <div class="form-group row">
@@ -195,7 +195,7 @@ http://www.tooplate.com/view/2098-health
                                                   Date
                                              </label>
                                              <div class="col-sm-8 col-lg-8">
-                                                  <input type="date" id="date" class="form-control">
+                                                  <input type="date" id="date" class="form-control"name="date">
                                              </div>
                                         </div>
                                         <!---->
@@ -204,7 +204,7 @@ http://www.tooplate.com/view/2098-health
                                                   Time
                                              </label>
                                              <div class="col-sm-8 col-lg-8">
-                                                  <input type="time" id="time" class="form-control">
+                                                  <input type="time" id="time" class="form-control"name="time">
                                              </div>
                                         </div>
                                         
@@ -222,7 +222,7 @@ http://www.tooplate.com/view/2098-health
                                         <br>
                                         <div class="form-group row justify-content-end">
                                              <div class="col-sm-5">
-                                                  <button type="submit" class="btn btn-form" style="background-color: #fd8f00;">
+                                                  <button type="submit" class="btn btn-form"name="appointment" style="background-color: #fd8f00;">
                                                        MAKE AN APPOINTMENT
                                                   </button>
                                              </div>
@@ -672,6 +672,24 @@ http://www.tooplate.com/view/2098-health
               alert(fData);
               $.ajax({
                   url: 'mail.php',
+                  type: 'POST',
+                  data: fData,
+                  cache: false,
+                  contentType: false,
+                  processData: false,
+                  dataType: 'json',
+                  success: function(response) {
+                     alert(response)
+                  }
+              });
+          });
+          $('#send-form').on('submit', function(e) {
+              e.preventDefault();  
+              alert("hello amol");
+              var fData = new FormData(this);
+              alert(fData);
+              $.ajax({
+                  url: 'appointment.php',
                   type: 'POST',
                   data: fData,
                   cache: false,

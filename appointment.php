@@ -7,12 +7,12 @@
         
         # Sender Data
         // $subject = trim($_POST["subject"]);
-        $name = str_replace(array("\r","\n"),array(" "," ") , strip_tags(trim($_POST["name"])));
+        $name = str_replace(array("\r","\n"),array(" "," ") , strip_tags(trim($_POST["patient_name"])));
         $email = filter_var(trim($_POST["email"]), FILTER_SANITIZE_EMAIL);
-        $phone = trim($_POST["phone"]);
-        $message = trim($_POST["message"]);
+        $contact = trim($_POST["contact"]);
+        $visit = trim($_POST["visit"]);
         $date = trim($_POST["date"]);
-        $Time = trim($_POST["Time"]);
+        $time = trim($_POST["time"]);
         if ( empty($name) OR !filter_var($email, FILTER_VALIDATE_EMAIL) OR empty($phone) OR empty($message)) {
             # Set a 400 (bad request) response code and exit.
             http_response_code(400);
@@ -21,16 +21,20 @@
         }
         
         # Mail Content
-        $content = "Name: $name\n";
-        $content .= "Email: $email\n\n";
-        $content .= "Phone: $phone\n";
-       
+        $content = "patient-name: $name\n";
+        // $content .= "email: $email\n\n";
+        $content .= "contact: $contact\n";
+        $content .= "visit: $visit\n";
+        $content .= "date: $date\n";
+        $content .= "time: $time\n";
+        $subject = "Appoitmnet form | New Enquirey added";
+
 
         # email headers.
         $headers = "From: $name <$email>";
 
         # Send the email.
-        $success = mail($mail_to, $content, $headers);
+        $success = mail($mail_to,$subject, $content, $headers);
         if ($success) {
             # Set a 200 (okay) response code.
             http_response_code(200);
@@ -47,23 +51,3 @@
         echo "There was a problem with your submission, please try again.";
     }
 ?>
-<script>
-          $('#appointment-form').on('submit', function(e) {
-              e.preventDefault();  
-              alert("hello amol");
-              var fData = new FormData(this);
-              alert(fData);
-              $.ajax({
-                  url: 'mail.php',
-                  type: 'POST',
-                  data: fData,
-                  cache: false,
-                  contentType: false,
-                  processData: false,
-                  dataType: 'json',
-                  success: function(response) {
-                     alert(response)
-                  }
-              });
-          });
-          </script>
