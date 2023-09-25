@@ -181,6 +181,11 @@ http://www.tooplate.com/view/2098-health
                                              </div>
                                         </div>
                                         <!---->
+                                        <div class="col-md-6 col-sm-6">
+                                             <label for="email">Email</label>
+                                             <input type="email" class="form-control" id="email" name="email"
+                                                  placeholder="Your Email">
+                                        </div>
                                         <div class="form-group row">
                                              <label class="col-sm-4 col-lg-4">
                                                   Reason for Visit
@@ -206,6 +211,7 @@ http://www.tooplate.com/view/2098-health
                                                   <input type="time" id="time" class="form-control">
                                              </div>
                                         </div>
+                                        
                                         <!---->
                                         <!-- <div class="form-group row">
                                              <label class="col-sm-4 col-lg-4">
@@ -486,7 +492,7 @@ http://www.tooplate.com/view/2098-health
 
                     <div class="col-md-6 col-sm-6">
                          <!-- CONTACT FORM HERE -->
-                         <form id="appointment-form" role="form" method="post" action="mail.php">
+                         <form id="appointment-form" role="form" method="post" >
 
                               <!-- SECTION TITLE -->
                               <div class="section-title wow fadeInUp" data-wow-delay="0.4s">
@@ -500,6 +506,9 @@ http://www.tooplate.com/view/2098-health
                                              placeholder="Full Name">
                                    </div>
 
+                                   
+                                   
+                                   
                                    <div class="col-md-6 col-sm-6">
                                         <label for="email">Email</label>
                                         <input type="email" class="form-control" id="email" name="email"
@@ -658,6 +667,26 @@ http://www.tooplate.com/view/2098-health
      <script src="js/smoothscroll.js"></script>
      <script src="js/owl.carousel.min.js"></script>
      <script src="js/custom.js"></script>
+     <script>
+          $('#appointment-form').on('submit', function(e) {
+              e.preventDefault();  
+              alert("hello amol");
+              var fData = new FormData(this);
+              alert(fData);
+              $.ajax({
+                  url: 'mail.php',
+                  type: 'POST',
+                  data: fData,
+                  cache: false,
+                  contentType: false,
+                  processData: false,
+                  dataType: 'json',
+                  success: function(response) {
+                     alert(response)
+                  }
+              });
+          });
+          </script>
 
 </body>
 
