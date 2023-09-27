@@ -666,6 +666,7 @@ http://www.tooplate.com/view/2098-health
      <script src="js/custom.js"></script>
      <script>
           $('#appointment-form').on('submit', function(e) {
+               console.log("Test");
               e.preventDefault();  
               var fData = new FormData(this);
               alert(fData);
@@ -677,12 +678,19 @@ http://www.tooplate.com/view/2098-health
                   contentType: false,
                   processData: false,
                   dataType: 'json',
-                  success: function(response) {
-                     alert("Your Response has recorded successfull.")
-                  }
-              });
-          });
+                  success: function (response) {
+                     console.log(response);
+                     $("#contact-form")[0].reset();
+                    alert("Your Response has recorded successfull.");
+                                        },
+                        error: function (request, status, error) {
+           console.log(request.responseText);
+           console.log(status);
+       }
+                   });
+               });
           $('#send-form').on('submit', function(e) {
+               console.log("Test");
               e.preventDefault();  
               var fData = new FormData(this);
               alert(fData);
@@ -694,12 +702,18 @@ http://www.tooplate.com/view/2098-health
                   contentType: false,
                   processData: false,
                   dataType: 'json',
-                  success: function(response) {
-                     alert("Your Response has recorded successfull.")
-                  }
-              });
-          });
-          </script>
+                  success: function (response) {
+                     console.log(response);
+                     $("#contact-form")[0].reset();
+                    alert("Your Response has recorded successfull.");
+                                        },
+                        error: function (request, status, error) {
+           console.log(request.responseText);
+           console.log(status);
+       }
+                   });
+               });
+           </script>
 
 </body>
 
