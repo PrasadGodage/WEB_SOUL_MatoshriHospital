@@ -189,8 +189,8 @@ http://www.tooplate.com/view/2098-health
   #about, #team, #news,
   #news-detail, #wise {
     position: relative;
-    padding-top: 100px;
-    padding-bottom: 100px;
+    padding-top: px;
+    padding-bottom: 10px;
   }
 
   #news, #service {
